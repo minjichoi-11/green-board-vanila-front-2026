@@ -63,6 +63,20 @@ button {
     background: #23663d;
     color: white;
     cursor: pointer;
+    transition: background-color 0.15s , transform 0.15s;
+}
+
+button:hover:not(:disabled) {
+    background: #174c2c;
+}
+
+button:active:not(:disabled) {
+    transform: scale(0.98);
+}
+
+button:disabled {
+    background: #647269;
+    cursor: not-allowed;
 }
 
 input, textarea {
@@ -111,4 +125,32 @@ form {
 img {
     max-width: 100%;
     height: auto;
+}
+
+nav > a {
+    text-decoration: none; /*밑줄 없애기*/
+}
+
+form input:focus, form textarea:focus {
+    border-color: #23633d;
+}
+
+a:hover { /*a에 호버가 된 경우 언더라인 나오게*/
+    text-decoration: underline;
+}
+
+/*반응형 대응*/
+@media (max-width: 600px) {
+    header, main, footer {
+        padding: 16px;
+    }
+
+    nav {
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+
+    button[type="submit"] {
+        width: 100%;
+    }
 }
