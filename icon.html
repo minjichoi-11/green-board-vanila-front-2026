@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8">
+		<title>폰트 어썸</title>		
+		<style>
+            .box1{ border-style: solid;}
+            .box2{ border-style: dotted;}
+            .box3{ border-style: dashed;}
+			ul {
+				list-style: none;
+				display: flex;
+                
+			}
+			li {    
+        border: 1px solid #222;
+				padding:10px 20px;
+        margin-right: 10px;
+			}
+			a {
+				text-decoration: none;
+			}
+			a:link, a:visited, a:hover {
+				color:#222;
+			}			
+		</style>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css" integrity="sha512-QeR2VH+lsBE5LSAe1Q5EnTBbe7XTBubt8dG93Y7gidSgdMCr8nVqKcfKAMyN96SV8KDbZVTDXChatu5G2KQGzg==" crossorigin="anonymous" referrerpolicy="no-referrer">
+		<!-- Do it! 아이콘 폰트 CDN 링크하기 -->
+
+        <div class="box1"> 실선 테두리</div>
+        <div class="box2"> 점선 테두리</div>
+        <div class="box3"> 짧은 직선 테두리</div>
+		
+	</head>
+	<body>
+		<nav>
+			<ul>
+				<!-- Do it! 메뉴에 아이콘 폰트 추가하기 -->
+				<li>
+                    <i class="fa-solid fa-house-chimney"></i>				
+					<a href="#">메뉴1</a>
+				</li>
+				<li>
+                    <i class="fa-regular fa-calendar-check"></i>
+					<a href="#">메뉴2</a>					
+				</li>
+				<li>
+                    <i class="fa-solid fa-battery-quarter"></i>
+					<a href="#">메뉴3</a>
+				</li>
+			</ul>
+		</nav>
+	</body>
+</html>
