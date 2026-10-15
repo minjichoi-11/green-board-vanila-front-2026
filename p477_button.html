@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>버튼에 동적인 효과 만들기</title>
+  <style>
+    body {
+      background-image: linear-gradient(to right, #ff81b9, rgb(249, 196, 233));
+      display:flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;      
+    }
+    .button {
+      text-decoration: none;
+      font-size: 3.0em;
+      letter-spacing: 2px;
+      color: #fff;
+      outline: 2px solid #fff;  
+      padding:20px 60px;
+      position: relative;
+      overflow: hidden;
+      transition: color 1s;
+    }
+    .button::before {
+      content: "";
+      position:absolute;
+      top: 0;
+      left: -50px;
+      width: 0;
+      height: 100%;
+      background-color: #fff;
+      z-index: -5;
+      transform: width 2s;
+    }
+    .button:hover {
+      color: #ff81b9;
+    }
+    .button:hover::before {
+      width: 200%;
+    }
+
+  </style>
+</head>
+
+<body>
+	<a href="#" class="button">복숭아</a>
+</body>
+</html>
