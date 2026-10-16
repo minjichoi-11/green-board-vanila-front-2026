@@ -5,6 +5,9 @@
         <title>그린 게시판</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="style.css">
+        <script defer src="js/data.js"></script>
+        <script defer src="js/rander.js"></script>
+        <script defer src="js/list.js"></script>
     </head>
     <body>
         <header>
@@ -21,33 +24,11 @@
             <!--메인 영역-->
             <h1>게시판</h1>
             <p id="list-message" role="status">게시글 목록</p>
-            <ul>
-                <li>
-                    <a href="detail.html">첫 번째 게시글</a>
-                    <div>
-                        <span>학생</span>
-                        <span>2026-10-03</span>
-                    </div>
-                </li>
-                <li>
-                    <a href="detail.html">두 번째 게시글</a>
-                    <div>
-                        <span>학생</span>
-                        <span>2026-10-03</span>
-                    </div>
-                </li>
-                <li>
-                    <a href="detail.html">수업 자료</a>
-                    <div>
-                        <span>강사</span>
-                        <span>2026-10-03</span>
-                    </div>
-                </li>
-            </ul>
+            <ul id="post-list"></ul>
             <div class="pagenation">
-                <button id="previous-page" type="button">이전</button>
+                <button id="previous-page" type="button" disabled>이전</button>
                 <span id="page-number">1페이지</span>
-                <button id="next-page" type="button">다음</button>
+                <button id="next-page" type="button" disabled>다음</button>
             </div>
         </main>
         <footer>

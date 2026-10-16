@@ -12,7 +12,7 @@ body {
 header, main, footer {
     width: 92%;
     max-width: 900px;
-    margin: 0;
+    margin: 0 auto;
     padding: 24px;
 }
 
