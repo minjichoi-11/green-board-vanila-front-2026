@@ -7,11 +7,12 @@ const samplePost = {
 };
 
 let posts = [
-samplePost, 
+    samplePost, 
     {...samplePost, id: 2, title: "HTML 문서 구조"},
     {...samplePost, id: 3, title: "학습 내용 정리"},
 ];
 
 let comments = [
-    {id: 1, boardId: 1, content: "첫 댓글", author: "학생"}
+    {id: 1, boardId: 1, content: "첫 댓글", author: "학생"},
+    {id: 2, boardId: 2, content: "2번 게시글의 댓글", author: "학생"}
 ];
