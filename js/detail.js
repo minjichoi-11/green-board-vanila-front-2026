@@ -26,7 +26,7 @@ document.querySelector("#comment-form").addEventListener("submit", function (eve
     }
 
     comments.push( {
-        id: 999, // 임시 설정
+        id: getCommentNextId(), // 임시 설정
         boardId: postId,
         content: content,
         author: "실습 사용자"

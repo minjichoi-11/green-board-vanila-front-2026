@@ -17,7 +17,7 @@ form.addEventListener("submit", function(event) {
     // 신규 게시글 추가
     posts.push(
         {
-            id: 999, // 실제로는 아이디가 겹치면 안 됨. 실습 단계라서 아이디 고정.
+            id: getPostNextId(), // 실제로는 아이디가 겹치면 안 됨. 실습 단계라서 아이디 고정.
             title: title,
             content: content,
             author: "실습 사용자",

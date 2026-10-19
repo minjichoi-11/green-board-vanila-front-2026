@@ -1,5 +1,9 @@
 function renderPosts(posts) {
     const list = document.querySelector("#post-list");
+
+    // 기존 이미 그려진(랜더링된) 댓글 요소들 모두 제거
+    list.replaceChildren();
+
     if (posts.length === 0) {
         list.textContent = "아직 게시글이 없습니다."
     }
@@ -29,6 +33,10 @@ function renderPost(post) {
 
 function renderComments(comments) {
     const list = document.querySelector("#comment-list");
+
+    // 기존 이미 그려진(랜더링된) 댓글 요소들 모두 제거
+    list.replaceChildren();
+
     if (comments.length === 0) {
         list.textContent = "등록된 댓글이 없습니다.";
     }
