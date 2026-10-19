@@ -14,7 +14,7 @@ async function login(event) { // async: 비동기 함수
     const response = await fetch ("http://127.0.0.1:8080/api/user/login", {
         method: "POST", headers: { "Content-Type": "application/json"},
         body: JSON.stringify({username, password})
-    })
+    });
 
     const result = await response.json();
     // console.log(result);
