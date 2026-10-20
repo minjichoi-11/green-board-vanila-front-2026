@@ -5,16 +5,9 @@ const postId = Number(params.get("id")); // 강제 형변환, "id" 값을 꺼내
 // posts 배열에서 사용자가 누른 게시글 찾기
 async function loadPosts() {
         try {
-            const response = await fetch(`http://127.0.0.1:8080/api/board/${postId}`,
-                { headers: getAuthHeader()}
-            );
-            const result = await response.json();
+            const post = await apiRequest(`/board/${postId}`);
 
-            if (!response.ok || !result.success) {
-                throw new Error(result.message || "게시글 조회 실패");
-            }
-
-            renderPost(result.data);
+            renderPost(post);
             document.querySelector("#post-message").textContent = "";
         
         } catch (error) {

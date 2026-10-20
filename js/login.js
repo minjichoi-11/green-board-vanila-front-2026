@@ -16,22 +16,19 @@ async function login(event) { // async: 비동기 함수
         body: JSON.stringify({username, password})
     });
 
-    const result = await response.json();
-    // console.log(result);
-
-    // http 상태 코드가 200이 아니거나,
-    // api 응답의 성공 여부가 성공이 아닌 경우
-    if (!response.ok || !result.success) {
-        throw new Error(result.message || "로그인에 실패했습니다.");
-    }
+    const tokens = await apiRequest(
+        "/user/login", 
+        "POST", 
+        {username, password}
+    );
 
     // 로그인은 성공했으나 응답에 토큰이 없는 경우
-    if (!result.data.accessToken) {
+    if (!tokens?.accessToken) {
         throw new Error("액세스 토큰이 없습니다.");
     }
 
     // 로컬 스토리지에 액세스 토큰 저장
-    localStorage.setItem("accessToken", result.data.accessToken);
+    localStorage.setItem("accessToken", tokens.accessToken);
     location.href = "index.html";
 
     } catch (error) {
