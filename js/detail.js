@@ -1,19 +1,24 @@
 // 게시글 상세 + 댓글 조회
-const params = new URLSearchParams(location.search); // URL에서 쿼리 스트링 파싱 객체 생성
-const postId = Number(params.get("id")); // 강제 형변환, "id" 값을 꺼내와 숫자로 변환 후 별도의 변수(postId)에 저장
+const params = new URLSearchParams(location.search);
+const postId = Number(params.get("id")); 
 
 // 게시글 한 개 조회 (성공하면 true, 실패하면 false)
 async function loadPosts() {
+    const message = document.querySelector("#post-message");
+    message.textContent = "게시글 불러오는 중...";
+    const reloadButton = document.querySelector("#reload-post");
         try {
             const post = await apiRequest(`/board/${postId}`);
             renderPost(post);
-            document.querySelector("#post-message").textContent = "";
+            message.textContent = "";
+            reloadButton.hidden = true;
             return true;
 
         } catch (error) {
         document.querySelector("#post-title").textContent = "게시글 조회 실패";
         document.querySelector("#post-content").textContent = "";
-        document.querySelector("#post-message").textContent = error.message;
+        message.textContent = error.message;
+        reloadButton.hidden = false;
         return false;
     }
 }
@@ -84,3 +89,12 @@ document.querySelector("#comment-form").addEventListener("submit", async functio
     }
 })
 
+document.querySelector("#reload-post").addEventListener("click", () => {
+    // ? 제로드 방법 1. 게시글 불러오는 함수 재호출
+        loadPosts();
+
+    // ? 제로드 방법 2. 페이지 새로고침
+    // location.reload();
+})
+
+    

@@ -1,26 +1,24 @@
 async function login(event) { // async: 비동기 함수
     event.preventDefault();
     const form = event.currentTarget;
-    // const form = document.querySelector("#login-form");
+    const button = form.querySelector("button[type=submit]");
     
     // 로그인 과정에서 문제 발생 시 안내 문구 출력용
     const message = document.querySelector("#login-message");
 
+    if (button.disabled) {
+        return;
+    }
+
+    button.disabled = true;
+    message.textContent = "로그인 중...";
+
     const username = form.elements.username.value.trim();
-    const password = form.elements.password.value.trim();
+    const password = form.elements.password.value;
 
     try {
 
-    const response = await fetch ("http://127.0.0.1:8080/api/user/login", {
-        method: "POST", headers: { "Content-Type": "application/json"},
-        body: JSON.stringify({username, password})
-    });
-
-    const tokens = await apiRequest(
-        "/user/login", 
-        "POST", 
-        {username, password}
-    );
+    const tokens = await apiRequest ("/user/login", "POST", { username, password });
 
     // 로그인은 성공했으나 응답에 토큰이 없는 경우
     if (!tokens?.accessToken) {
@@ -33,6 +31,8 @@ async function login(event) { // async: 비동기 함수
 
     } catch (error) {
         message.textContent = error.message;
+    } finally {
+        button.disabled = false;
     }
 
 }
